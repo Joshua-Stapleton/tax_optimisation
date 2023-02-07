@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import robin_stocks as rs
-from robinhood_connection import login
 from FIFO_tax_queue import Trans, balanceFifo
+from robinhood_connection import login
 login()
 
 
@@ -34,17 +34,16 @@ def enque_orders(orders):
 lt_shares_dict = {}
 lt_shares_min = 0
 for i in range(365):
-    # get the date one day in the future
     date = datetime.now() + timedelta(days=i)
     tax_queue = enque_orders(orders)
     lt_shares, st_shares = balanceFifo(tax_queue, current_share_price, current_date=date)
     if lt_shares > lt_shares_min:
-        # lt_shares_min = lt_shares
         lt_shares_dict[str(date)[:10]] = lt_shares
         lt_shares_min = lt_shares
-    # get the number of shares currently held in the account for VOO
-    assert round(lt_shares + st_shares, 6) == round(current_quantity, 6) # lt+st shares should always equal total shares
+    # get the number of shares currently held in the account for the ticker
+    assert round(lt_shares + st_shares, 6) == round(current_quantity, 6) # lt+st shares should always equal total shares currently held
     tax_queue.clear()
 
-# shows the number of shares you can sell under long-term tax rates as they become available. Last entry should never be more than a year into the future.
+# shows the number of shares you can sell under long-term tax rates as they become available. 
+# Last entry should never be more than a year into the future as by that stage all shares should be long-term
 print(lt_shares_dict)
