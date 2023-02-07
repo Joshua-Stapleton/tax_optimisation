@@ -1,0 +1,4 @@
+robin_stocks
+python-dotenv
+datetime
+matplotlib
