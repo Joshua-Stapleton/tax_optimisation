@@ -2,7 +2,6 @@ from datetime import datetime, timedelta
 import robin_stocks as rs
 from robinhood_connection import login
 from FIFO_tax_queue import Trans, balanceFifo
-import matplotlib.pyplot as plt
 login()
 
 
