@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import robin_stocks as rs
-from FIFO_tax_queue import Trans, balanceFifo
-from robinhood_connection import login
+from functions.FIFO_tax_queue import Trans, balanceFifo
+from functions.robinhood_connection import login
 login()
 
 

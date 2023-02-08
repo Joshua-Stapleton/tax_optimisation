@@ -14,4 +14,4 @@ ROBINHOOD_USERNAME='...'
 ROBINHOOD_PASSWORD='...'
 ```
 
-Then set the ticker symbol (default = 'VOO') in `tax_optimisation.py`, and run to see the results. The results are printed to the console, and give a schedule of when to sell your shares to minimise your tax bill.
+Then set the ticker symbol (default = `'VOO'`) in `tax_optimisation.py`, and run to see the results. The results are printed to the console, and give a schedule of when to sell your shares to minimise your tax bill.
